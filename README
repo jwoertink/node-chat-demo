@@ -3,7 +3,7 @@ Node Chat Demo
 This is a copy of http://chat.nodejs.org/
 Original tutorial from http://github.com/neerajdotname/node-chat-in-steps/tree/step13
 
-This version is using a later version of Node with all the updates, changes, and fixes.
+Using NodeJS -v0.1.98-5-g02da5ed
 
 RUN:
 $node server.js
