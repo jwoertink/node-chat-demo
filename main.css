@@ -78,16 +78,31 @@ a:hover {
 .nick a {
   color: inherit;
 }
-#toolbar ul {
+#toolbar ul#status {
   margin: 0;
   padding: 0;
   list-style: none;
+  position: relative;
+  z-index: 1;
 }
-#toolbar li {
+#toolbar li#currentTime {
   display: block;
   float: left;
   margin: 0 2em 0 0;
 }
 #usersLink {
   color: inherit;
+}
+#chatlist {
+  display: none;
+  position: absolute;
+  z-index: 10;
+  background-color: #773333;
+  border: 1px solid #ffffff;
+  left: 70px;
+  top: -40px;
+}
+#chatlist li {
+  display: block;
+  float: none;
 }

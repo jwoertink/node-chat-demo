@@ -34,7 +34,9 @@ App.who = function() {
       return;
     }
     nicks = data.nicks;
-    $('#usersLink').text(nicks.length.toString() + ' user');
+    
+    var plural = (nicks.length == 1) ? ' user' : 'users';
+    $('#usersLink').text(nicks.length.toString() + plural);
   });
 };
 
@@ -146,6 +148,21 @@ $('#entry').live('keypress', function(e) {
   App.addMessage(from, msg);
   
   $('#entry').val('');
+});
+$('#usersLink').live('click', function() {
+  $.getJSON('/who', function(data, status) {
+    var names = data.nicks;
+    if(names.length < 1) {
+      $(this).text('No Users');
+    } else {
+      $(names).each(function(i, e) {
+        $('#chatlist').append('<li>' + e + '</li>');
+      });
+      $('#chatlist').show('slow');
+    }
+  });
+  
+  return false;
 });
 
 $(function() {

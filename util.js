@@ -21,7 +21,6 @@ util.createSession = function(nick) {
     id: Math.floor(Math.random() * 999999999999).toString()
   };
   util.sessions[session.id] = session;
-  console.log(session);
   return session;
 };
 
@@ -72,7 +71,6 @@ util.get('/main.css', util.staticHandler('main.css', 'text/css'));
 
 util.get('/join', function(req, res) {
   var nick = qs.parse(url.parse(req.url).query).nick,
-  session;
   session = util.createSession(nick);
   if (!session) {
     res.simpleJSON(200, {
